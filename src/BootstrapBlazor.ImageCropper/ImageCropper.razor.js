@@ -21,7 +21,7 @@ export async function crop() {
         result.appendChild(resultData);
     }
     //inst.invokeMethodAsync("GetResult", resultDataUrl);
-    return resultData.toDataURL();
+    return resultData.toDataURL("image/jpeg", 0.8);
 }
 
 export async function replace(url) {
