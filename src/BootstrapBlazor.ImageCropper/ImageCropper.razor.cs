@@ -20,7 +20,7 @@ public partial class ImageCropper : IAsyncDisposable
     private IJSObjectReference? Module { get; set; }
 
     [Inject, NotNull]
-    protected IJSRuntime? JS { get; set; }
+    protected IJSRuntime? JSRuntime { get; set; }
 
     private DotNetObjectReference<ImageCropper>? Instance { get; set; }
     private ElementReference Element { get; set; }
@@ -143,9 +143,9 @@ public partial class ImageCropper : IAsyncDisposable
             {
                 ModulePath = ModulePath ?? $"./_content/BootstrapBlazor.ImageCropper/cropper.js" + "?v=" + Ver;
 
-                await JS.InvokeAsync<IJSObjectReference>("import", ModulePath);
+                await JSRuntime.InvokeAsync<IJSObjectReference>("import", ModulePath);
 
-                Module = await JS.InvokeAsync<IJSObjectReference>("import", "./_content/BootstrapBlazor.ImageCropper/ImageCropper.razor.js" + "?v=" + Ver);
+                Module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/BootstrapBlazor.ImageCropper/ImageCropper.razor.js" + "?v=" + Ver);
                 Instance = DotNetObjectReference.Create(this);
                 await Module!.InvokeVoidAsync("init", Instance, Element, Options);
                 //await Module!.InvokeVoidAsync("changeAvatar", Instance, Element);
