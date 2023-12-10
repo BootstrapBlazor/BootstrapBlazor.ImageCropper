@@ -1,6 +1,6 @@
 # Blazor ImageCropper 图像裁剪 组件  
 
-基于Cropper.js
+基于[Cropper.js]([https://fengyuanchen.github.io/cropperjs/](https://github.com/fengyuanchen/cropperjs))的Blazor组件
 
 示例:
 
