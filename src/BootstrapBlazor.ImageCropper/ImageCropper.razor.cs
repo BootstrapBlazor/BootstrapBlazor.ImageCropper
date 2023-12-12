@@ -23,6 +23,10 @@ public partial class ImageCropper : IAsyncDisposable
     protected IJSRuntime? JSRuntime { get; set; }
 
     private DotNetObjectReference<ImageCropper>? Instance { get; set; }
+
+    /// <summary>
+    /// UI界面元素的引用对象
+    /// </summary>
     private ElementReference Element { get; set; }
 
     /// <summary>
